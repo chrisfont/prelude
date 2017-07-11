@@ -43,7 +43,7 @@
   (getenv
    (if (equal system-type 'windows-nt) "USERNAME" "USER")))
 
-(message "Prelude is powering up... Be patient, Master %s!" current-user)
+;(message "Prelude is powering up... Be patient, Master %s!" current-user)
 
 (when (version< emacs-version "24.4")
   (error "Prelude requires at least GNU Emacs 24.4, but you're running %s" emacs-version))
@@ -59,7 +59,6 @@
   "This directory houses all of the built-in Prelude modules.")
 (defvar prelude-personal-dir (expand-file-name "personal" prelude-dir)
   "This directory is for your personal configuration.
-
 Users of Emacs Prelude are encouraged to keep their personal configuration
 changes in this directory.  All Emacs Lisp files there are loaded automatically
 by Prelude.")
@@ -133,7 +132,7 @@ by Prelude.")
   (message "Loading personal configuration files in %s..." prelude-personal-dir)
   (mapc 'load (directory-files prelude-personal-dir 't "^[^#\.].*el$")))
 
-(message "Prelude is ready to do thy bidding, Master %s!" current-user)
+;(message "Prelude is ready to do thy bidding, Master %s!" current-user)
 
 (prelude-eval-after-init
  ;; greet the use with some useful tip

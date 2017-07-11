@@ -51,13 +51,13 @@
 (setq inhibit-startup-screen t)
 
 ;; nice scrolling
-(setq scroll-margin 0
-      scroll-conservatively 100000
+(setq scroll-margin                   0
+      scroll-conservatively           100000
       scroll-preserve-screen-position 1)
 
 ;; mode line settings
-(line-number-mode t)
-(column-number-mode t)
+(line-number-mode     t)
+(column-number-mode   t)
 (size-indication-mode t)
 
 ;; enable y/n answers
@@ -66,13 +66,14 @@
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
-      '("" invocation-name " Prelude - " (:eval (if (buffer-file-name)
-                                            (abbreviate-file-name (buffer-file-name))
-                                          "%b"))))
+      '("" invocation-name " " (:eval (if (buffer-file-name)
+                                      (abbreviate-file-name (buffer-file-name))
+                                    "%b"))))
 
 ;; use zenburn as the default theme
-(when prelude-theme
-  (load-theme prelude-theme t))
+(use-package monokai-theme
+  :config
+  (load-theme 'monokai t))
 
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)
